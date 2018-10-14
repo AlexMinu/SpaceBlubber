@@ -33,11 +33,11 @@ public class PlayerMovement : MonoBehaviour {
             {
                 if (swipeXAbs >= swipeYAbs)//RIGHT or LEFT
                 {
-                    rigidBody.AddForce(transform.right * (deltaSwipe.x > 0f ? 1 : -1) * (invertedControls ? -1 : 1) * moveForce, ForceMode.Impulse);
+                    Move(transform.right * (deltaSwipe.x > 0f ? 1 : -1));
                 }
                 else//UP or DOWN
                 {
-                    rigidBody.AddForce(transform.up * (deltaSwipe.y > 0f ? 1 : -1) * (invertedControls ? -1 : 1) * moveForce, ForceMode.Impulse);
+                    Move(transform.up * (deltaSwipe.y > 0f ? 1 : -1));
                 }
             }
         }
@@ -61,11 +61,11 @@ public class PlayerMovement : MonoBehaviour {
                 {
                     if (swipeXAbs >= swipeYAbs)//RIGHT or LEFT
                     {
-                        rigidBody.AddForce(transform.right * (deltaSwipe.x > 0f ? 1 : -1) * (invertedControls ? -1 : 1) * moveForce, ForceMode.Impulse);
+                        Move(transform.right * (deltaSwipe.x > 0f ? 1 : -1));
                     }
                     else//UP or DOWN
                     {
-                        rigidBody.AddForce(transform.up * (deltaSwipe.y > 0f ? 1 : -1) * (invertedControls ? -1 : 1) * moveForce, ForceMode.Impulse);
+                        Move(transform.up * (deltaSwipe.y > 0f ? 1 : -1));
                     }
                 }
             }
@@ -89,15 +89,20 @@ public class PlayerMovement : MonoBehaviour {
                 {
                     if (swipeXAbs >= swipeYAbs)//RIGHT or LEFT
                     {
-                        rigidBody.AddForce(transform.right * (deltaSwipe.x > 0f ? 1 : -1) * (invertedControls ? -1 : 1) * moveForce, ForceMode.Impulse);
+                        Move(transform.right * (deltaSwipe.x > 0f ? 1 : -1));
                     }
                     else//UP or DOWN
                     {
-                        rigidBody.AddForce(transform.up * (deltaSwipe.y > 0f ? 1 : -1) * (invertedControls ? -1 : 1) * moveForce, ForceMode.Impulse);
+                        Move(transform.up * (deltaSwipe.y > 0f ? 1 : -1));
                     }
                 }
             }
         }
 #endif
+    }
+
+    void Move(Vector3 direction)
+    {
+        rigidBody.AddForce(direction * moveForce * (invertedControls ? -1 : 1), ForceMode.VelocityChange);
     }
 }
