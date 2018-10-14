@@ -270,7 +270,7 @@ GameObject:
   - component: {fileID: 2109788870}
   - component: {fileID: 2109788869}
   m_Layer: 0
-  m_Name: Sphere
+  m_Name: Blubber
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -302,6 +302,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98e6560f7780b82409510f0767e04c8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveForce: 1
+  invertedControls: 0
 --- !u!135 &2109788871
 SphereCollider:
   m_ObjectHideFlags: 0
